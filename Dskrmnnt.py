@@ -39,45 +39,79 @@ def grafik(a, b, c):
 def rohkem():
     f.grid(row=4, column=0, columnspan=7)
     kala.grid(row=0, column=0)
-    prillid.grid(row=1, column=0)
     konn.grid(row=2, column=0)
 
 def kalaGR():
-    x1 = np.arange(0, 9.5, 0.5)
-    y1 = (2 / 27) * x1 * x1 - 3
-    x2 = np.arange(-10, 0.5, 0.5)
-    y2 = 0.04 * x2 * x2 - 3
-    x3 = np.arange(-9, 2.5, 0.5)
-    y3 = (2 / 9) * (x3 + 6) ** 2 + 1
-    x4 = np.arange(-3, 9.5, 0.5)
-    y4 = (-1 / 12) * (x4 - 3) ** 2 + 6
-    x5 = np.arange(5, 9, 0.5)
-    y5 = (1 / 9) * (x5 - 5) ** 2 + 2
-    x6 = np.arange(5, 8.5, 0.5)
-    y6 = (1 / 8) * (x6 - 7) ** 2 + 1.5
-    x7 = np.arange(-13, -8.5, 0.5)
-    y7 = (-0.75) * (x7 + 11) ** 2 + 6
-    x8 = np.arange(-15, 12.5, 0.5)
-    y8 = (-0.5) * (x8 + 13) ** 2 + 3
-    x9 = np.arange(-15, 10, 0.5)
-    y9 = [1] * len(x9)
-    x10 = np.arange(3, 4, 0.5)
-    y10 = [1] * len(x10)
-    
-    plt.figure()
-    plt.plot(x1, y1, 'b-')
-    plt.plot(x2, y2, 'b-')
-    plt.plot(x3, y3, 'b-')
-    plt.plot(x4, y4, 'b-')
-    plt.plot(x5, y5, 'b-')
-    plt.plot(x6, y6, 'b-')
-    plt.plot(x7, y7, 'b-')
-    plt.plot(x8, y8, 'b-')
-    plt.plot(x9, y9, 'b-')
-    plt.plot(x10, y10, 'b-')
-    plt.title('Kala graafik')
-    plt.xlabel('x')
+
+    x1=np.arange(0,9.5,0.5)
+    y1=(2/27)*x1**2-3
+    x2=np.arange(-10,0.5,0.5)
+    y2=0.04*x2**2-3
+    x3=np.arange(-9,-2.5,0.5)
+    y3=(2/9)*(x3+6)**2+1
+    x4=np.arange(-3,9.5,0.5)
+    y4=(-1/12)*(x4-3)**2+6
+    x5=np.arange(5,9,0.5)
+    y5=(1/9)*(x5-5)**2+2
+    x6=np.arange(5,7.95,0.05)
+    y6=(1/8)*(x6-7)**2+1.5
+    x7=np.arange(-13,-8.5,0.5)
+    y7=(-0.75)*(x7+11)**2+6
+    x8=np.arange(-15,-12.5,0.5)
+    y8=(-0.5)*(x8+13)**2+3
+    x9=np.arange(-15,-9.5,0.5)
+    y9=[1]*len(x9)
+    x10=np.arange(3,4,0.5)
+    y10=[3]*len(x10)
+    whaleGraph=plt.figure()
+    for i in range(10):
+        plt.plot(locals()[f'x{i+1}'],locals()[f'y{i+1}'])
+    plt.title('Vaal')
     plt.ylabel('y')
+    plt.xlabel('x')
+    plt.grid(True)
+    plt.show()
+
+
+def liblikasGR():
+    x1=np.arange(-9,-1,0.5)
+    y1=(-1/8)*(x1+9)**2+8
+    x2=np.arange(1,9,0.5)
+    y2=(-1/8)*(x2-9)**2+8
+    x3=np.arange(-9,-8,0.5)
+    y3=7*(x3+8)**2+1
+    x4=np.arange(8,9,0.5)
+    y4=7*(x4-8)**2+1
+    x5=np.arange(-8,-1,0.5)
+    y5=(1/49)*(x5+1)**2
+    x6=np.arange(1,8,0.5)
+    y6=(1/49)*(x6-1)**2
+    x7=np.arange(-8,-1,0.5)
+    y7=(-4/49)*(x7+1)**2
+    x8=np.arange(1,8,0.5)
+    y8=(-4/49)*(x8-1)**2
+    x9=np.arange(-8,-2,0.5)
+    y9=(1/3)*(x9+5)**2-7
+    x10=np.arange(2,8,0.5)
+    y10=(1/3)*(x10-5)**2-7
+    x11=np.arange(-2,-1,0.5)
+    y11=(-2)*(x11+1)**2-2
+    x12=np.arange(1,2,0.5)
+    y12=(-2)*(x12-1)**2-2
+    x13=np.arange(-1,1,0.5)
+    y13=(-1)*(4*x13**2)+2
+    x14=np.arange(-1,1,0.5)
+    y14=4*x14**2-6
+    x15=np.arange(-2,0,0.5)
+    y15=(-1)*(1.5*x15)+2
+    x16=np.arange(0,2,0.5)
+    y16=1.5*x16+2
+    butterflyGraph=plt.figure()
+    for i in range(16):
+        plt.plot(locals()[f'x{i+1}'],locals()[f'y{i+1}'])
+    plt.title('Liblikas')
+    plt.ylabel('y')
+    plt.xlabel('x')
     plt.grid(True)
     plt.show()
 
@@ -147,14 +181,12 @@ kala = Radiobutton(f,
                    variable=var,
                    value=1,
                    command=kalaGR)
-prillid = Radiobutton(f,
-                      text="prillid",
-                      variable=var,
-                      value=2)
+
 konn = Radiobutton(f,
-                   text="konn",
+                   text="liblikas",
                    variable=var,
-                   value=3)
+                   value=3,
+                   command = liblikasGR)
 
 pealkiri.grid(row=0, column=0, columnspan=7)
 texbox1.grid(row=1, column=0)
